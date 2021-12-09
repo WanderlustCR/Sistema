@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Facturacion</title>
+	 <!-- Bootstrap -->
+  <link rel="shortcut icon" href="img/logo.jpg">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jquery.bxslider.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="css/set1.css" />
+  <link href="css/overwrite.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+
+<div id="Clase1">
+	<div class="container">
+		<div class="row">
+			<br><br>
+				<form id="task-form">
+			<div class="form-group">
+				<div id="Cliente">
+					<div class="text-center"><h2>Informacion del cliente</h2></div>
+						<div>
+							<select id="task-Concierge" class="form-control">
+								<option hidden selected> Concierge </option>
+								<option value="Holiday Inn Aeropuerto">Holiday Inn Aeropuerto</option>
+								<option value="Irazú Hotel & Studios">Irazu Hotel & Studios</option>
+								<option value="Best Western Jacó Beach">Best Western Jaco Beach</option>
+							</select>
+						</div>
+					
+						<input type="text" id = "task-Agent" class="form-control" placeholder="Agent" /><br>
+						<input type="text" id = "task-Name" class="form-control" placeholder="Name" /><br>
+						<input type="number" id = "task-Nino" class="form-control" placeholder="Ninos" /><br>
+						<input type="number" id = "task-Adulto" class="form-control" placeholder="Adultos" /><br>
+						<div class="col-md-12">
+								<div class="col-md-4">
+								<input type="date" id = "task-In" class="form-control" placeholder="In" /><br>
+							</div>
+							<div class="col-md-4">
+								<input type="date" id = "task-Out" class="form-control" placeholder="Out" /><br>
+							</div>
+							<div class="col-md-4">
+								<select id="task-Iva" class="form-control">
+									<option hidden selected> IVA </option>
+									<option value="0">0</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+								</select>
+							</div>
+					</div>
+			</div>
+				
+			</div>
+			<div id="tour">
+				<div class="text-center"><h2>Informacion del tour</h2></div>
+				<div>
+							<select id="task-Proveedor" class="form-control">
+								<option hidden selected> Proveedor </option>
+							</select>
+						</div>
+				<input type="text" id = "task-ID" class="form-control" placeholder="Servicio" /><br>
+				<input type="text" id = "task-Namet" class="form-control" placeholder="Nombre del comisionista" /><br>
+				<textarea id="task-Description" row="3" class="form-control" placeholder="Detalles/Alergias"></textarea><br>
+				<input type="text" id = "task-PlaceIn" class="form-control" placeholder="Pick up" /><br>
+				<input type="text" id = "task-PlaceOut" class="form-control" placeholder="Drop off" /><br>
+				<input type="number" step="any" id = "task-Price" class="form-control" placeholder="Precio sin impuestos" /><br>
+				<input type="number" step="any" id = "task-PriceProve" class="form-control" placeholder="Precio del Proovedor" /><br>
+				<div class="col-md-11">
+					<div class="col-md-4"><input type="date" id = "task-Int" class="form-control" placeholder="In" /><br></div>
+					<div class="col-md-4"><input type="date" id = "task-Outt" class="form-control" placeholder="Out" /><br></div>
+					<div class="col-md-4"><input type="time" id = "task-Time" class="form-control" placeholder="Time" /><br></div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-11">
+					<div class="text-center"><button class="btn btn-primary" id="btn-task-form">Enviar</button>
+					</div>
+				</div>
+			</div>
+				
+		</form>
+
+		</div>
+		
+	</div>
+	<div class="alert alert-success" id="Alerta">...</div>
+	<div>
+		<div class="text-center">
+
+			<button class="btn btn-primary" id="Vol"  onclick="Volver()">Volver</button>
+			<button class="btn btn-primary" id="Vol"  onclick="Ingresa()">Ingresar Tour</button>
+			<button class="btn btn-primary" id="Vol"  onclick="Mostrar()">Mostrar Cotis</button>
+		</div>
+	</div>
+	</div>
+	<div id="ifra">
+		
+	</div>
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyC7li0b3vgufnxB4yskqibfr8_EDELyTo4",
+  authDomain: "the-wanderlust-97939.firebaseapp.com",
+  projectId: "the-wanderlust-97939",
+  storageBucket: "the-wanderlust-97939.appspot.com",
+  messagingSenderId: "689355854417",
+  appId: "1:689355854417:web:3a6b41066ff2890e969e70",
+  measurementId: "G-SY3SNVZ68Z"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script type="text/javascript" src="opera.js"></script>
+
+
+</body>
+
+
+</html>
+
+
+
+							
+
