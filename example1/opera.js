@@ -36,6 +36,7 @@ function ExisteEnArray(Prov){
 }
 
 function BuscarProovedor(){
+    document.getElementById('prover').style.display = "none";
     Servicios.innerHTML = ``;
     document.getElementById('task-form').style.display = 'none';
     const onGetTask = (callback) => db.collection( " Tours/collection/"+document.getElementById('task-id').value).onSnapshot(callback); //En vivo
